@@ -97,6 +97,7 @@ Area : <input type="text" name="area" value="{{area}}"></input>m<sup>2</sup><br/
 </body>
 </html>
 
+
 views.py
 
 from django.shortcuts import render
@@ -112,16 +113,17 @@ def squareprism(request):
         print('request=',request)
         print('Base=',b)
         print('Height=',h)
-        area = int(b) * int(h)
+        area = 2*int(b)^2 + 4*int(h)*int(b)
         context['area'] = area
         context['b'] = b
         context['h'] = h
-        print('Area=',area)
+        print('Surface area of square Prism=',area)
     return render(request,'myapp/math.html',context)
 
-urls.py
 
-from django.contrib import admin
+    urls.py
+
+    from django.contrib import admin
 from django.urls import path
 from myapp import views
 urlpatterns = [
@@ -129,15 +131,16 @@ urlpatterns = [
     path('areaofsquareprism/',views.squareprism,name="areaofsquareprism"),
     path('',views.squareprism,name="areaofsquareprismroot")
 ]
+
 ```
 
 ## SERVER SIDE PROCESSING:
-![Alt text](<Screenshot (64).png>)
 
+![Alt text](<Screenshot (73).png>)
 
 ## HOMEPAGE:
-![Alt text](<Screenshot (63).png>)
 
+![Alt text](<Screenshot (72).png>)
 
 ## RESULT:
 The program for performing server side processing is completed successfully.
